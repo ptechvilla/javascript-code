@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <input type="text" id="id1" placeholder="enter a string"> <br><br>
+        <input type="text" id="id2" placeholder="enter value of n">
+        <button style="color: blue;" onclick="clickme()">click me</button>
+
+    </head>
+    <body>
+        <script>
+            function clickme(){
+              var str= document.getElementById("id1").value;
+              var n= document.getElementById("id2").value;
+            
+                function extract(str1,x){
+                 return  str1.substring(0,x);
+
+                }
+               var output= extract(str,n);
+               alert(output);
+            }
+            
+        </script>
+    </body>
+</html>

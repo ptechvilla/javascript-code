@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Qus 1 -->
+    <p><b>1. Write a JavaScript program to test the first character of a string is uppercase or not uaing Regular
+            Expression</b></p>
+    <input type="text" id="id1" placeholder="enter the string">
+    <input type="button" onclick="getdata1()" value="show_result" style="color: rgb(235, 61, 49);">
+    <p id="show1">output shows here</p>
+
+    <!-- Qus 2 -->
+    <p><b>2 .Write a Email validation function using Regular Expression.</b></p>
+    <input type="text" id="id2" placeholder="enter email-id">
+    <input type="button" onclick="getdata2()" value="show_result2" style="color: rgb(235, 61, 49);">
+    <p id="show2">output shows here</p>
+
+    <!-- Qus 3 -->
+    <p><b>3. Delete roll no property from an object and print before or after deleting.</b></p>
+    <pre>
+        var student = {
+        name : "David Rayy",
+        sclass : "VI",
+        rollno : 12 };
+    </pre>
+
+    <input type="button" onclick="getdata3()" value="show_result3" style="color: rgb(235, 61, 49);">
+    <p id="show3">Property and value shows here before deleting</p>
+    <!-- <p id="show3a">Property and value shows here after deleting</p> -->
+
+    <!-- Qus 4 -->
+    <p><b>4.Write a JavaScript program to display the reading status (i.e. display book name, author name and reading
+            status) of the following books.</b></p>
+    <pre>
+        var library = [ 
+           {
+               author: 'Bill Gates',
+               title: 'The Road Ahead',
+               readingStatus: true
+           },
+           {
+               author: 'Steve Jobs',
+               title: 'Walter Isaacson',
+               readingStatus: true
+           },
+           {
+               author: 'Suzanne Collins',
+               title:  'Mockingjay: The Final Book of The Hunger Games', 
+               readingStatus: false
+           }];</pre>
+    <input type="text" id="id2" placeholder="enter email-id">
+    <input type="button" onclick="getdata4()" value="show_result1" style="color: rgb(235, 61, 49);">
+    <p id="show4">output shows here</p>
+
+    <!-- Qus 5 -->
+    <p><b>5. Write a JavaScript program to add items in an blank array and display the items</b></p>
+    <input type="text" id="id5" placeholder="enter email-id">
+    <input type="button" onclick="getdata5()" value="show_result1" style="color: rgb(235, 61, 49);">
+    <p id="show5">output shows here</p>
+</head>
+
+<body>
+    <script>
+        // function 1
+        function getdata1() {
+            var a = document.getElementById("id1").value;
+            function firstuppar(str) {
+                regexp = /^[A-Z]/;
+                if (regexp.test(str)) {
+                    document.getElementById("show1").innerHTML = "First Character is Uppar case";
+                }
+                else {
+                    document.getElementById("show1").innerHTML = "First Character is Not Uppar case";
+                }
+            }
+            firstuppar(a);
+        }
+
+        // function 2
+        function getdata2() {
+            var a = document.getElementById("id2").value;
+            function checkmail(mail) {
+
+                //regexp=/^[a-z0-9+_.-]+@[a-z0-9.-]+$/;
+                let regex = new RegExp('[a-z0-9]+@[a-z]+\.[a-z]{2,3}');
+
+                regexp = /[a-z0-9]+@[a-z]/;
+
+                if (regexp == mail) {
+
+                    document.getElementById("show2").innerHTML = "Email valid;"
+                } else {
+                    document.getElementById("show2").innerHTML = "Email is not valid;"
+                }
+
+            }
+            checkmail(a);
+        }
+
+        //function 3
+        function getdata3() {
+            var student = {
+                name: "David Rayy",
+                sclass: "VI",
+                rollno: 12
+            };
+            document.getElementById("show3").innerHTML = JSON.stringify(student);
+
+        }
+
+    </script>
+
+</body>
+
+</html>

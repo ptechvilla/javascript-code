@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <!-- Qus 1 -->
+    <p><b>1. Write a javascript function to get the specified number elements of an array, parameter 'n' will return
+            first 'n' element of an array.</b></p>
+    <input type="text" id="id1" placeholder="enter the value of n ">
+    <input type="button" onclick="getdata1()" value="show_result" style="color: rgb(235, 61, 49);">
+    <p id="show1">output shows here</p>
+
+    <!-- Qus 2 -->
+    <p><b>2. Write a JavaScript program to join all elements of the following array into a string.</b></p>
+    <input type="button" onclick="getdata2()" value="show_result" style="color: rgb(235, 61, 49);">
+    <p id="show2">output shows here</p>
+
+    <!-- <p><b>3.Write a JavaScript program to find the most frequent item of an array.</b></p>
+<input type="text" id="id3" placeholder="enter the value of n ">
+<input type="button" onclick="getdata3()" value="show_result" style="color: rgb(235, 61, 49);">
+<p id="show3">output shows here</p> -->
+
+  <!-- Qus 4 -->
+    <p><b>4. Write a JavaScript program to compute the sum and product of an array of integers.</b></p>
+    <input type="button" onclick="getdata4()" value="show_result" style="color: rgb(235, 61, 49);">
+    <p id="show4">sum shows here</p>
+    <p id="show4a">Product shows here</p>
+
+      <!-- Qus 5-->
+      <p><b>5. Write a JavaScript program to remove duplicate items from an array.</b></p>
+      <input type="button" onclick="getdata5()" value="show_result" style="color: rgb(235, 61, 49);">
+      <p id="show5">sum shows here</p>
+      
+
+
+
+
+</head>
+
+<body>
+    <script>
+        // function 1   
+        function getdata1() {
+            const array = [20, 30, 45, 13, 3, -7, 8];
+            var a = document.getElementById("id1").value;
+            function first(Arr, n) {
+
+                if (n == null)
+                    return Arr[0];
+                if (n <= 0)
+                    return [];
+                return Arr.slice(0, n)
+            }
+            var data = first(array, a);
+            document.getElementById("show1").innerHTML = data;
+        }
+
+        // function 2
+        function getdata2() {
+            const str = ['A', 'B', 'C', 'D', 'E', 'F'];
+            var a = str.join('');
+            document.getElementById("show2").innerHTML = a;
+        }
+
+        //function 4
+        function getdata4() {
+            const arr = [1, 2, 3, 4, 5];
+            let sum = 0;
+            let prod = 1;
+            for (let i = 0; i < arr.length; i++) {
+                sum = sum + arr[i];
+                prod = prod * arr[i];
+            }
+            document.getElementById("show4").innerHTML = "Sum:- " + sum;
+            document.getElementById("show4a").innerHTML = "Product:- " + prod;
+
+        }
+
+       // function 5
+       function getdata5(){
+        let arr = ['A', 'B', 'A', 'C', 'B'];
+        let emptyarr=[];
+        arr.forEach((element)=>{
+            if(!emptyarr.includes(element)){
+                emptyarr.push(element)
+            }
+        });
+        document.getElementById("show5").innerHTML = emptyarr;
+       }
+
+    </script>
+
+</body>
+
+</html>

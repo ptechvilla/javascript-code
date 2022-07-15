@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>assignment 3</title>
+</head>
+
+<body>
+    <h2 style="text-align:center ; color: red;">Assignment 3</h2>
+
+
+    <!--qus 1-->
+    <p><b>1. Write a JavaScript function to check whether an given input is a string or not.</b></p>
+    <input type="text" id="id1" placeholder="please enter a name">
+    <input type="button" value="check output 1" style="color: blue;" onclick="show1()" />
+    <p id="demo1">Output shows here</p><br>
+    <!--qus 2-->
+    <p><b>2. Write a JavaScript function to split a string and convert it into an array of words.</b></p>
+    <input type="text" id="id2" placeholder="please enter a name">
+    <input type="button" value="check output 2" style="color: blue;" onclick="show2()" />
+    <p id="demo2">Output shows here</p><br>
+    <!--qus 3-->
+    <p><b>3.Write a JavaScript function to convert a string in abbreviated form.
+            input - "Virat Kohli"
+            output - "Virat K."</b></p>
+
+    <input type="button" value="check output 3" style="color: blue;" onclick="show3()" />
+    <p id="demo3">Output shows here</p><br>
+    <!--qus 4-->
+    <p><b>4. Write a JavaScript function to capitalize the first letter of each word in a string.</b></p>
+    <input type="text" id="id4" placeholder="please enter a name">
+    <input type="button" value="check output 4" style="color: blue;" onclick="show4()" />
+    <p id="demo4">Output shows here</p><br>
+
+    <!-- qus 5 -->
+    <p><b>5. Write a JavaScript function to count the occurrence of a substring in a string.</b></p>
+    <input type="text" id="id5" placeholder="enter String"><br><br>
+    <input type="text" id="5id5" placeholder="enter subString">
+    <input type="button" value="check output 5" style="color: blue;" onclick="getdata()" />
+    <p id="demo5">Output shows here</p><br>
+
+    <!--qus 7-->
+    <p><b>7 a. Write a JavaScript program to convert temperatures Fahrenheit to Celsius..</b></p>
+    <input type="text" id="id7" placeholder="please enter temp. in Fahrenheit.">
+    <input type="button" value="check output 7 a" style="color: blue;" onclick="show7()" />
+    <p id="demo7">Celsius shows here</p><br>
+
+    <p><b>7 b. Write a JavaScript program to convert temperatures Celsius to Fahrenheit </b></p>
+    <input type="text" id="7id7" placeholder="please enter temp. in Celsius.">
+    <input type="button" value="check output 7 b" style="color: blue;" onclick="show7a()" />
+    <p id="demo7a">Fahrenheit shows here</p><br>
+    <!--qus 8-->
+    <p><b>8. Write a JavaScript program to compute the sum of the two given integers. If the two values are same,
+            then
+            returns triple their sum..</b></p>
+    1st value: <input type="text" id="id8" placeholder="please enter first value"><br><br>
+    2nd value: <input type="text" id="8id8" placeholder="please enter second value">
+    <input type="button" value="check output 8" style="color: blue;" onclick="show8()" />
+    <p id="demo8">Output shows here</p><br>
+    <!--qus 9-->
+    <p><b>9. Write a JavaScript function to retrieve all the values of an object's properties.</b></p>
+    <input type="button" value="check output 9" style="color: blue;" onclick="show9()" />
+    <p id="demo9">Output shows here</p><br>
+
+    <!--qus 10-->
+    <p><b>10. Write a JavaScript program which compute, the average marks of the following students Then, this
+            average
+            is used to determine the corresponding grade.</b></p>
+    <input type="text" id="id10">
+    <input type="button" value="check output 10" style="color: blue;" onclick="show10()" />
+    <p id="demo10">Output shows here</p><br>
+
+
+
+    <script>
+        // function 1
+        function show1() {
+            let txt = document.getElementById("id1").value;
+            if (isNaN(txt) && txt !== '@') {
+
+                document.getElementById("demo1").innerHTML = "yes, given input is a string";
+            }
+            else {
+                document.getElementById("demo1").innerHTML = "No, given input is not string";
+            }
+
+        }
+
+        // function 2
+        function show2() {
+            let name = document.getElementById("id2").value;
+            let text = name.split("");
+            document.getElementById("demo2").innerHTML = text;
+        }
+
+        // function 3
+        function show3() {
+            let name = "Virat Kohali";
+            let text = name.slice(0, 7);
+            document.getElementById("demo3").innerHTML = text;
+        }
+
+        // function 4
+        function show4() {
+
+            const str = document.getElementById("id4").value;
+            function capitalize(str) {
+                return str.charAt(0).toUpperCase() + str.slice(1);
+            }
+
+            const caps = str.split(' ').map(capitalize).join(' ');
+            document.getElementById("demo4").innerHTML = caps;
+        }
+
+        // function 5
+        function getdata() {
+            var a = document.getElementById("id5").value;
+            var b = a.toString();
+
+            var c = document.getElementById("5id5").value;
+            var d = c.toString();
+
+            function count(str, find) {
+                return (str.split(find)).length - 1;
+
+            }
+            var data = count(b, d);
+            document.getElementById("demo5").innerHTML = "The occurrence of  "+d+" in the given string is= "+data;
+        }
+        // function 7
+        function show7() {
+            let f = document.getElementById("id7").value;
+            let c = ((f - 32) / 1.8);
+            document.getElementById("demo7").innerHTML = "Celsius: " + c + "";
+        }
+        function show7a() {
+            let c = document.getElementById("7id7").value;
+            let f = ((9 * c / 5) + 32);
+            document.getElementById("demo7a").innerHTML = "Fahrenheit: " + f;
+        }
+        // function 8
+        function show8() {
+            let num1 = Number(document.getElementById("id8").value);
+            let num2 = Number(document.getElementById("8id8").value);
+            if (num1 == num2) {
+
+                document.getElementById("demo8").innerHTML = "Output:- " + ((3 * num1) + (3 * num2));
+
+            }
+            else {
+                document.getElementById("demo8").innerHTML = "Output:- " + (num1 + num2);
+            }
+        }
+
+        // fuction 9
+        function show9() {
+            let obj1 = {
+                name: "Prashant ",
+                age: 24,
+                email: "prashant@techvillasolutions.com ",
+                roll_no: 35
+            }
+            //document.getElementById("demo9").innerHTML=Object.values(obj1);
+            document.getElementById("demo9").innerHTML = JSON.stringify(obj1);
+        }
+
+        //function 10
+        function show10() {
+            let marks = document.getElementById("id10").value;
+            if (marks <= 100 && marks > 90) {
+                document.getElementById("demo10").innerHTML = "A grade";
+            }
+            else if (marks <= 90 && marks > 80) {
+                document.getElementById("demo10").innerHTML = "B grade";
+            }
+            else if (marks <= 80 && marks > 70) {
+                document.getElementById("demo10").innerHTML = "C grade";
+            }
+            else if (marks <= 70 && marks >= 60) {
+                document.getElementById("demo10").innerHTML = "D grade";
+            } else {
+                document.getElementById("demo10").innerHTML = "Fail";
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

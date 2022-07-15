@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>candidate registration form</title>
+  <style>
+    .heading1 {
+      color: rgb(60, 28, 240);
+      font-size: 30px;
+
+    }
+
+    .cssproprty {
+      width: 600px;
+      height: 700px;
+      margin-left: 350px;
+      /* padding: 50px !important; */
+      border: 3px solid green;
+      background-color: cyan;
+      padding: 15px;
+      /* padding-top: 40px;
+      padding-left: 15px; */
+    }
+
+    .baba {
+      display: flex;
+      flex-direction: row;
+    }
+
+    .center {
+
+      margin-left: 200px;
+      margin-right: auto;
+      width: 50%;
+    }
+  </style>
+  <script>
+    function getdata() {
+      //Candidate Validation
+      var candidate_name = document.getElementById("candidatename").value;
+      //window.alert(candidate_name)
+
+      if (candidate_name == "" || candidate_name=="@") {
+        document.getElementById("canname").innerHTML = "** Please enter name";
+        return false;
+      }
+      if (candidate_name.length < 2) {
+        document.getElementById("canname").innerHTML = "** User name must 3 character";
+        return false;
+      } document.getElementById("canname").innerHTML = "";
+
+
+      // Email-id validation
+      var Email = document.getElementById("email").value;
+      if (Email == "") {
+        document.getElementById("email1").innerHTML = "** please enter email-id";
+        return false;
+      } document.getElementById("email1").innerHTML = "";
+      if (Email.indexOf('@') <= 0) {
+        document.getElementById("email1").innerHTML = "** please enter @ on right place";
+        return false;
+      } if ((Email.charAt(Email.length - 4) != '.') && (Email.charAt(Email.length - 3) != '.')) {
+        document.getElementById("email1").innerHTML = "** please enter .(dot) on right place";
+        return false;
+      }
+
+      // Mobile number validation
+      var contact = document.getElementById("cnumber").value;
+
+      if (contact == "") {
+        document.getElementById("cnum").innerHTML = "** Please enter mobile number";
+        return false;
+      } document.getElementById("cnum").innerHTML = "";
+
+      if (isNaN(contact)) {
+        document.getElementById("cnum").innerHTML = "** please enter only numbers not chracters";
+        return false;
+      } document.getElementById("cnum").innerHTML = "";
+      if (contact.length != 10) {
+        document.getElementById("cnum").innerHTML = "** Please enter 10 digit";
+        return false;
+      } document.getElementById("cnum").innerHTML = "";
+
+      //Candidate status validation
+      var can_status = document.getElementById("candidatestatus").value;
+
+      if (can_status == -1) {
+        document.getElementById("status").innerHTML = "** Please select any option";
+        return false;
+      } document.getElementById("status").innerHTML = "";
+
+
+
+      //Total Experience validation
+      var experience = document.getElementById("experience").value;
+      if (experience == -1) {
+        document.getElementById("exp").innerHTML = "** Please select any option";
+        return false;
+      } document.getElementById("exp").innerHTML = "";
+
+
+      //Highest qualification
+      var qual = document.getElementById("qualification").value;
+      if (qual == -1) {
+        document.getElementById("highqual").innerHTML = "** Please select any option";
+        return false;
+      } document.getElementById("highqual").innerHTML = "";
+
+      //Skills Validation
+      var skills_count = 0;
+      let checkbox = document.querySelectorAll("input[type='checkbox']:checked")
+      var check = '';
+      for (let x of checkbox) {
+        check += x.value;
+        skills_count++;
+      }
+
+
+
+      if (skills_count < 3) {
+        document.getElementById("checkds").innerHTML = "** Please select 3 skills";
+        return false;
+      }
+      document.getElementById("checkds").innerHTML = "";
+
+
+      //Current Location Validation
+      var current_loc = document.getElementById("currentlocation").value;
+      console.log(current_loc);
+      if (current_loc == "") {
+        document.getElementById("cloc").innerHTML = " ** Current location can't be blank";
+        return false;
+      } document.getElementById("cloc").innerHTML = "";
+
+      //Preffered Location Validation
+      var preffered_loc = document.getElementById("prefferedlocation").value;
+      console.log(preffered_loc);
+      if (preffered_loc == "") {
+        document.getElementById("ploc").innerHTML = " ** Preffered location can't be blank";
+        return false;
+      }
+      document.getElementById("ploc").innerHTML = "";
+
+
+      // radio button validation
+      var rad_count = 0;
+      let rad1 = document.querySelectorAll("input[type='radio']:checked")
+      var box = "";
+      for (let x of rad1) {
+        box += x.value;
+        rad_count++;
+      }
+
+      if (rad_count == 0) {
+        document.getElementById("rad").innerHTML = "** Please select one option for relocate";
+      } else {
+        document.getElementById("rad").innerHTML = "";
+      }
+
+      alert("Name: " + candidate_name + "\nEmail: " + Email + "\nCandidate_status: " + can_status + "\nMobile_no: " + contact + "\nTotal_Experience: " + experience + "\nHighest_Qualification" + qual + "\nSkills: " + check + "\nCurrent_location: " + current_loc + "\nPreffered_location" + preffered_loc + "\nReady To Relocate: " + box);
+
+    }
+  </script>
+</head>
+
+
+
+<body>
+  <ol>
+    <form form="myform" autocomplete="on">
+      <table class="cssproprty">
+
+
+        <tr>
+          <td colspan="2" class="heading1" style="text-align: center;"><u><i>Candidate Registration Form </i> </u></td>
+        </tr>
+
+        <tr>
+          <td><img class="center" src="img.jpg" width="100px" height="100px"></td>
+        </tr>
+
+
+        <tr>
+          <td>
+            <br>
+            <label><b>
+                <li>Candidate Name:</li>
+              </b></label>
+          </td>
+          <td><input type="text" id="candidatename">
+            <span id="canname" style="color: red" value=""></span><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td>
+            <lable><b>
+                <li>Email-id:</li>
+              </b><label>
+          </td>
+          <td><input type="email" id="email">
+            <span id="email1" style="color: red;" value=""></span><br><br>
+          </td>
+        </tr>
+
+
+        <tr>
+          <td>
+            <label><b>
+                <li>Mobile Number:</li>
+              </b></label>
+          </td>
+          <td>
+            <input type="text" id="cnumber" minlength="10" maxlength="10" required>
+            <span id="cnum" style="color:red" value=""></span><br><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label><b>
+                <li>Candidate status:</li>
+              </b></label></td>
+          <td><select id="candidatestatus">
+              <option value=-1>--Please select--</option>
+              <option value="new">New</option>
+              <option value="Interview">Interview scheduled</option>
+              <option value="selected">Selected</option>
+              <option value="rejected">Rejected</option>
+            </select><br>
+            <span id="status" style="color:red" value=""></span><br>
+          </td>
+
+        </tr>
+
+        <tr>
+          <td><label><b>
+                <li>Total Experience(Years):</li>
+              </b></label></td>
+          <td> <select id="experience">
+              <option value=-1>--Please select--</option>
+              <option value="fresher">Fresher </option>
+              <option value="one">1 </option>
+              <option value="two">2 </option>
+              <option value="three">3 </option>
+              <option value="four">4+ </option>
+            </select><br>
+            <span id="exp" style="color:red" value=""></span><br>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label><b>
+                <li>Highest Qualification:</li>
+              </b></label></td>
+          <td><select id="qualification">
+              <option value=-1>--Please select--</option>
+              <option value="MCA">MCA</option>
+              <option value="BCA">BCA</option>
+              <option value="BTECH">BTECH</option>
+              <option value="BBA">BBA</option>
+              <option value="BA">BA</option>
+              <option value="MA">MA</option>
+            </select><br>
+            <span id="highqual" style="color:red" value=""></span>
+            <br>
+          </td>
+        </tr>
+
+        <tr>
+          <td><label><b>
+                <li>Skills:</li>
+              </b></label><br></td>
+          <td class="baba"><input type="checkbox" value="java ">java <br>
+            <input type="checkbox" value="C++ ">C++ <br>
+            <input type="checkbox" value="C ">C <br>
+            <input type="checkbox" value="PHP ">PHP <br>
+            <input type="checkbox" value="CSS">CSS<br>
+            <input type="checkbox" value="HTMl ">HTML <br>
+          </td>
+          <td class="baba"> <input type="checkbox" value="CSS ">CSS<br>
+            <input type="checkbox" value="Typescript ">Type Script <br>
+            <input type="checkbox" value="javascript ">Java Script<br>
+            <input type="checkbox" value="Angular 12">Angular 12<br><br>
+            <span id="checkds" style="color: red;" value=" "></span>
+          </td>
+
+        </tr>
+
+        <tr>
+          <td><label><b>
+                <li>Current Location:</li>
+              </b></label></td>
+          <td><input type="text" id="currentlocation">
+            <span id="cloc" style="color: red;" value=" "></span>
+          </td>
+
+
+        </tr>
+
+        <tr>
+          <td><label><b>
+                <li>Preferred Location:</li>
+              </b></label></td>
+
+          <td><input type="text" id="prefferedlocation"><br>
+            <span id="ploc" style="color: red;" value=" "></span>
+          </td>
+          </td>
+        </tr>
+
+        <div id="rates">
+          <tr>
+            <td><label id="relocate"><b>
+                  <li>Ready to Relocate:</li>
+                </b></label></td>
+            <td> <input type="radio" name="radio1" value="YES">Yes
+              <input type="radio" name="radio1" value="NO">No <br>
+              <span id="rad" style="color: red;" value=""></span>
+            </td>
+          </tr>
+        </div>
+
+
+        <tr>
+          <td><input type="button" style="background-color:skyblue;" value="click me" onclick="getdata()"></td>
+        </tr>
+
+
+
+      </table>
+    </form>
+  </ol>
+</body>
+
+</html>
